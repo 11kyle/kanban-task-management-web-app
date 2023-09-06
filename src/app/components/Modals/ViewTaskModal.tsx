@@ -66,11 +66,11 @@ export default function ViewTaskModal({ open, setOpen }: Props) {
                     </Dialog.Title>
                     <div className="mt-6">
                       <p className="text-medium-gray body-lg">
-                        We know what we're planning to build for version one. Now we need to finalise the first pricing model we'll use. Keep iterating the subtasks until we have a coherent proposition.
+                        We know what we&#39;re planning to build for version one. Now we need to finalise the first pricing model we&#39;ll use. Keep iterating the subtasks until we have a coherent proposition.
                       </p>
                     </div>
                     <div className="mt-6">
-                      <h4 className="text-medium-gray body-md">Subtasks (2 of 3)</h4>
+                      <h4 className="text-medium-gray body-md">Subtasks &#40;2 of 3&#41;</h4>
                       <fieldset>
                         <legend className="sr-only">Subtasks</legend>
                         <div className="space-y-2 mt-4">
