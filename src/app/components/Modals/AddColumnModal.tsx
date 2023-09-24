@@ -1,20 +1,22 @@
-import { Fragment, useRef } from 'react'
+"use client"
+
+import React, { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { Button } from '../Button'
 
 type Props = {
   open: boolean
   setOpen: React.Dispatch<React.SetStateAction<boolean>>
-  deleteTask: (e: React.SyntheticEvent) => Promise<void>
+  activeBoardId: string
 }
 
-export default function DeleteTaskModal({ open, setOpen, deleteTask }: Props) {
-
-  const cancelButtonRef = useRef(null)
+export default function AddColumnModal({ open, setOpen, activeBoardId }: Props) {
+  // for initial focus
+  const focusRef = useRef(null)
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-50" initialFocus={cancelButtonRef} onClose={setOpen}>
+      <Dialog as="div" className="relative z-50" initialFocus={focusRef} onClose={setOpen}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -40,35 +42,35 @@ export default function DeleteTaskModal({ open, setOpen, deleteTask }: Props) {
             >
               <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                 <div>
-                  <div>
-                    <Dialog.Title as="h3" className="text-main-red heading-lg">
-                      Delete this task?
+                  <form>
+                    <Dialog.Title as="h3" className="text-black heading-lg">
+                      Add Column
                     </Dialog.Title>
                     <div className="mt-6">
-                      <p className="text-medium-gray body-lg">
-                        Are you sure you want to delete the &#39;Build settings UI&#39; task and its subtasks? This action cannot be reversed.
-                      </p>
+                        <div>
+                          <label htmlFor="name" className="block text-medium-gray body-md">
+                            Name
+                          </label>
+                          <div className="mt-2">
+                            <input 
+                              ref={focusRef}
+                              type="text"
+                              required
+                              id="boardId"
+                              name="boardId"
+                              value={activeBoardId}
+                              onChange={() => console.log("hi")}
+                              className=""
+                            />
+                          </div>
+                        </div>
                     </div>
-                  </div>
-                </div>
-                <div className="mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-4">
-                  <Button
-                    type="button"
-                    variant="destructive"
-                    className=" sm:col-start-2"
-                    onClick={deleteTask}
-                  >
-                    Delete
-                  </Button>
-                  <Button
-                    type="button"
-                    variant="secondary"
-                    className="mt-3 sm:col-start-1 sm:mt-0"
-                    onClick={() => setOpen(false)}
-                    ref={cancelButtonRef}
-                  >
-                    Cancel
-                  </Button>
+                    <div className="mt-6 ">
+                      <Button>
+                        Add New Column
+                      </Button>
+                    </div>
+                  </form>
                 </div>
               </Dialog.Panel>
             </Transition.Child>

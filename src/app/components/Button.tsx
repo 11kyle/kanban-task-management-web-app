@@ -3,7 +3,7 @@ import clsx from 'clsx'
 
 const variantStyles = {
   primary:
-    'bg-main-purple hover:bg-main-purple-hover text-white',
+    'bg-main-purple hover:bg-main-purple-hover text-white disabled:bg-main-purple-hover',
   secondary:
     'bg-main-purple bg-opacity-10 hover:bg-opacity-25 text-main-purple',
   destructive:
@@ -43,7 +43,7 @@ export const Button = forwardRef(function Button({
   ...props
 }: Props, ref?: ForwardedRef<HTMLButtonElement>) {
   className = clsx(
-    'w-full rounded-full text-[13px] font-bold leading-[23px]',
+    'w-full rounded-full text-[13px] font-bold leading-[23px] px-6',
     variantStyles[variant],
     sizeStyles[size],
     className

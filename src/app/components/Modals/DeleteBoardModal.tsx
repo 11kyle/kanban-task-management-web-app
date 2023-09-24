@@ -5,10 +5,11 @@ import { Button } from '../Button'
 type Props = {
   open: boolean
   setOpen: React.Dispatch<React.SetStateAction<boolean>>
-  deleteTask: (e: React.SyntheticEvent) => Promise<void>
+  deleteBoard: (e: React.SyntheticEvent) => Promise<void>
 }
 
-export default function DeleteTaskModal({ open, setOpen, deleteTask }: Props) {
+export default function DeleteBoardModal({ open, setOpen, deleteBoard }: Props) {
+  // const [open, setOpen] = useState(false)
 
   const cancelButtonRef = useRef(null)
 
@@ -42,11 +43,11 @@ export default function DeleteTaskModal({ open, setOpen, deleteTask }: Props) {
                 <div>
                   <div>
                     <Dialog.Title as="h3" className="text-main-red heading-lg">
-                      Delete this task?
+                      Delete this board?
                     </Dialog.Title>
                     <div className="mt-6">
                       <p className="text-medium-gray body-lg">
-                        Are you sure you want to delete the &#39;Build settings UI&#39; task and its subtasks? This action cannot be reversed.
+                      Are you sure you want to delete the &#39;Platform Launch&#39; board? This action will remove all columns and tasks and cannot be reversed.
                       </p>
                     </div>
                   </div>
@@ -56,7 +57,7 @@ export default function DeleteTaskModal({ open, setOpen, deleteTask }: Props) {
                     type="button"
                     variant="destructive"
                     className=" sm:col-start-2"
-                    onClick={deleteTask}
+                    onClick={deleteBoard}
                   >
                     Delete
                   </Button>

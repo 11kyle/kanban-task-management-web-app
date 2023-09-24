@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Board {
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  columns Column[]
+}
+
+model Column {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  boardId String @db.ObjectId
+  name    String
+  tasks   Task[]
+  board   Board @relation(fields: [boardId], references: [id], onDelete: Cascade)
+}
+
+model Subtask {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  isCompleted Boolean
+  taskId      String   @db.ObjectId
+  title       String
+  task        Task    @relation(fields: [taskId], references: [id], onDelete: Cascade)
+}
+
+model Task {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  columnId    String @db.ObjectId
+  description String
+  status      String
+  title       String
+  subtasks    Subtask[]
+  column      Column @relation(fields: [columnId], references: [id], onDelete: Cascade)
+}
