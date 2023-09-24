@@ -9,15 +9,7 @@ export type Column = {
   boardId: string 
   name: string
   tasks: Task[]
-  board: Board 
-}
-
-export type Subtask = {
-  id: string
-  isCompleted: boolean
-  taskId: string
-  title: string
-  task: Task
+  // board: Board 
 }
 
 export type Task = {
@@ -27,5 +19,13 @@ export type Task = {
   status: string
   title: string
   subtasks: Subtask[]
-  column: Column
+  // column: Column
+}
+
+export type Subtask = {
+  id: string
+  isCompleted: boolean
+  taskId: string
+  title: string
+  // task: Task
 }
