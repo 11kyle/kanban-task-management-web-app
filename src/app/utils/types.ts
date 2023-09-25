@@ -9,7 +9,6 @@ export type Column = {
   boardId: string 
   name: string
   tasks: Task[]
-  // board: Board 
 }
 
 export type Task = {
@@ -19,7 +18,6 @@ export type Task = {
   status: string
   title: string
   subtasks: Subtask[]
-  // column: Column
 }
 
 export type Subtask = {
@@ -27,5 +25,4 @@ export type Subtask = {
   isCompleted: boolean
   taskId: string
   title: string
-  // task: Task
 }

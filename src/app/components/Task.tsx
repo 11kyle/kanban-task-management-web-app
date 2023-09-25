@@ -58,7 +58,7 @@ export function Task({
         : (
           <>
             <div 
-              className="group relative w-[280px] shrink-0 rounded-lg bg-white shadow-[0px_4px_6px_0px_rgba(54,78,126,0.10)]"
+              className="group relative w-[280px] shrink-0 rounded-lg bg-white dark:bg-dark-gray shadow-[0px_4px_6px_0px_rgba(54,78,126,0.10)]"
               // onClick={() => {
               //   setActiveTask(task)
               //   setViewTaskOpen(true)}

@@ -146,7 +146,7 @@ export default function Dashboard({ fetchedBoards }: Props) {
                       } 
                     })} 
                   /> */}
-                  <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6">
+                  <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-lines-light bg-white px-6 dark:bg-dark-gray dark:border-lines-dark">
                     <div className="flex h-16 shrink-0 items-center">
                       <LogoDark />
                     </div>
@@ -199,16 +199,16 @@ export default function Dashboard({ fetchedBoards }: Props) {
                           </ul>
                         </li>
                         <li className="mt-auto">
-                          <div className="h-12 flex justify-center items-center gap-4 rounded-md bg-light-gray">
+                          <div className="h-12 flex justify-center items-center gap-4 rounded-md bg-light-gray mb-10">
                             <SunIcon className="w-5 text-medium-gray" aria-hidden="true" />
                             <Toggle />
                             <MoonIcon className="w-4 text-medium-gray" aria-hidden="true" />
                           </div>
                         </li>
-                        <li className="flex items-center gap-4 text-medium-gray heading-md mb-10">
+                        {/* <li className="flex items-center gap-4 text-medium-gray heading-md mb-10">
                           <EyeSlashIcon className="w-5" />
                           Hide Sidebar
-                        </li>
+                        </li> */}
                       </ul>
                     </nav>
                   </div>
@@ -229,7 +229,7 @@ export default function Dashboard({ fetchedBoards }: Props) {
               } 
             })} 
           /> */}
-          <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6">
+          <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-lines-light bg-white px-6 dark:bg-dark-gray dark:border-lines-dark">
             <div className="flex h-16 shrink-0 items-center">
               <LogoDark />
             </div>
@@ -282,16 +282,16 @@ export default function Dashboard({ fetchedBoards }: Props) {
                   </ul>
                 </li>
                 <li className="mt-auto">
-                  <div className="h-12 flex justify-center items-center gap-4 rounded-md bg-light-gray">
+                  <div className="h-12 flex justify-center items-center gap-4 rounded-md bg-light-gray mb-10">
                     <SunIcon className="w-5 text-medium-gray" aria-hidden="true" />
                     <Toggle />
                     <MoonIcon className="w-4 text-medium-gray" aria-hidden="true" />
                   </div>
                 </li>
-                <li className="flex items-center gap-4 text-medium-gray heading-md mb-10">
+                {/* <li className="flex items-center gap-4 text-medium-gray heading-md mb-10">
                   <EyeSlashIcon className="w-5" />
                   Hide Sidebar
-                </li>
+                </li> */}
               </ul>
             </nav>
           </div>
@@ -300,7 +300,7 @@ export default function Dashboard({ fetchedBoards }: Props) {
 
         <div className="lg:pl-72">
           {/* <div className="fixed top-0 z-40 w-full"> */}
-            <div className="fixed top-0 z-40 flex h-24 w-screen lg:w-[calc(100vw-288px)] shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-0 lg:shadow-none">
+            <div className="fixed top-0 z-40 flex h-24 w-screen lg:w-[calc(100vw-288px)] shrink-0 items-center gap-x-4 border-b border-lines-light bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-0 lg:shadow-none dark:bg-dark-gray dark:border-lines-dark">
               <button
                 type="button"
                 className="-m-2.5 p-2.5 text-gray-700 lg:hidden"
@@ -314,7 +314,7 @@ export default function Dashboard({ fetchedBoards }: Props) {
               <div className="h-6 w-px bg-gray-200 lg:hidden" aria-hidden="true" />
 
               <div className="flex flex-1 items-center gap-x-4 self-stretch lg:gap-x-6 lg:px-6">
-                <h2 className="text-black heading-lg lg:heading-xl">{activeBoard?.name}</h2>
+                <h2 className="text-black heading-lg lg:heading-xl dark:text-white">{activeBoard?.name}</h2>
                 <div className="flex items-center gap-x-2 lg:gap-x-4 ml-auto">
                   <Button variant="primary" onClick={() => setOpenNewTaskModal(true)}>
                     Add Task
@@ -382,7 +382,7 @@ export default function Dashboard({ fetchedBoards }: Props) {
             </div>
           </div>
 
-          <main className="fixed top-24 bottom-0 inset-x-0 lg:left-72 lg:right-0 bg-light-gray">
+          <main className="fixed top-24 bottom-0 inset-x-0 lg:left-72 lg:right-0 bg-light-gray dark:bg-ver-dark-gray">
             <Board>
               {activeBoard 
                 ? activeBoard.columns.length < 1 
@@ -399,8 +399,8 @@ export default function Dashboard({ fetchedBoards }: Props) {
                         
                         return (
                           <Task key={task.id} setViewTaskOpen={setViewTaskOpen} task={task}>
-                            <p className="text-black heading-md">{task.title}</p>
-                            <p className="text-medium-gray body-md">{completedCount} of {task.subtasks.length} substasks</p>
+                            <p className="text-black heading-md dark:text-white">{task.title}</p>
+                            <p className="text-medium-gray body-md dark:text-medium-gray">{completedCount} of {task.subtasks.length} substasks</p>
                           </Task>
                         )
                       })}
